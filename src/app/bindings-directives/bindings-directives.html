@@ -1,0 +1,69 @@
+<div class="container">
+  <!--Kötések - binginds, property, event-->
+  <h1>{{ title }}</h1><!--String interpoláció-->
+  <input [value]="userInput" placeholder="Tulajdonságkötés (Egyutas)">
+  <input [(ngModel)]="userInput" placeholder="Kétutas adatkötés">
+  <p>A megadott szöveg: {{userInput}}</p>
+
+  <h2 [innerHTML]="selectedFruit"></h2> <!--Tulajdonságkötés -->
+
+  <!-- Eseménykötés-->
+  <button (click)="toggleHighlight()">Kiemelés váltása</button>
+
+  <!-- Attribútum direktíva (ngClass, ngStyle'-->
+  <p [ngClass]="{'highlighted': isHighlighted}">A szövegkiemelés változik</p>
+  <p [ngStyle]="{'font-size.px' : fontSize}">Ez a szöveg dinamikusan méretezhető</p>
+  <button (click)="fontSize = fontSize + 2">Betűméret növelése</button>
+  <button (click)="fontSize = fontSize - 2">Betűméret csökkentése</button>
+
+  <!-- Strukturális direktívák -->
+  <!-- * előtag (deprecated), @ előtag új -->
+  <div *ngIf="isVisible">
+    <p>Ez a szöveg látható, ha az isVisible igaz.</p>
+  </div>
+
+  @if (isVisible){
+    <p>Ez a szöveg látható, ha az isVisible igaz.</p>
+  } @else {
+    <p>A szöveg nem látható</p>
+  }
+
+  <h2>Gyümölcsök listája</h2>
+  <ul>
+    <li *ngFor="let item of items">{{item}}</li>
+  </ul>
+
+  <ul>
+    @for (item of items; track item){
+      <li>{{item}}</li>
+    }
+  </ul>
+
+  <button (click)="isVisible = !isVisible">
+    {{isVisible ? 'Elrejtés': 'Megjelenítés' }}
+  </button>
+
+  <h2>Gyümölcsválasztó</h2>
+  <select [(ngModel)]="selectedFruit">
+    <option value="Alma">Alma</option>
+    <option value="Banán">Banán</option>
+    <option value="Cseresznye">Cseresznye</option>
+  </select>
+
+  <p>{{selectedFruit}}</p>
+
+  <div [ngSwitch]="selectedFruit">
+    <p *ngSwitchCase="'Alma'">Kiválasztott {{selectedFruit}}</p>
+    <p *ngSwitchCase="'Banán'">Kiválasztott: {{selectedFruit}}</p>
+    <p *ngSwitchCase="'Cseresznye'">Kiválasztott: {{selectedFruit}}</p>
+  </div>
+
+  @switch (selectedFruit){
+    @case ('Alma') {<p>Alma</p>}
+    @case ('Banán') {<p>Banán</p>}
+    @case ('Cseresznye') {<p>Cseresznye</p>}
+    @default {
+      <p>Egyik sem</p>
+    }
+  }
+</div>
