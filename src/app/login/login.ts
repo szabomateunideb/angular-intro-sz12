@@ -34,7 +34,7 @@ export class Login {
 
   onLogin(){
     this.authService.login(this.loginData).subscribe({
-      next: () => this.router.navigate(['bindings-directives']),
+      next: () => this.router.navigate(['filmek']),
       error: (err) => this.errorMsg = 'Hibás bejelentkezés vagy szerverhiba'
     });
   }

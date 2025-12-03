@@ -1,0 +1,30 @@
+<div class="container">
+<table mat-table [dataSource]="filmek">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let e"> {{e.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="cim">
+    <th mat-header-cell *matHeaderCellDef> Cím </th>
+    <td mat-cell *matCellDef="let e"> {{e.cim}}</td>
+  </ng-container>
+  <ng-container matColumnDef="megjelenes">
+    <th mat-header-cell *matHeaderCellDef> Megjelenes </th>
+    <td mat-cell *matCellDef="let e"> {{e.megjelenes}}</td>
+  </ng-container>
+  <ng-container matColumnDef="hossz">
+    <th mat-header-cell *matHeaderCellDef> Hossz </th>
+    <td mat-cell *matCellDef="let e"> {{e.hossz}}</td>
+  </ng-container>
+  <ng-container matColumnDef="korhatar">
+    <th mat-header-cell *matHeaderCellDef> Korhatár </th>
+    <td mat-cell *matCellDef="let e"> {{e.megjelenes}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+  <tr mat-row *matRowDef="let row; columns:displayedColumn;"></tr>
+
+
+</table>
+</div>
