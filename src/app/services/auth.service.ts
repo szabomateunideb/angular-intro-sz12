@@ -6,7 +6,7 @@ import {LoginDto} from '../models/login.dto';
 @Injectable({
   providedIn: 'root',
 })
-export class AuhtService {
+export class AuthService {
   private apiUrl= 'http://localhost:9090/auth';
 
   public loggedIn$ =

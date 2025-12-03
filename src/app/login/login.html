@@ -1,0 +1,32 @@
+<div style="display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh">
+  <mat-card style = "width: 100%; max-width: 400px; padding: 20px;">
+    <mat-card-header>
+      <mat-card-title>
+        Bejelentkezés
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form style="display: flex; flex-direction: column; margin-top: 20px;">
+        <mat-form-field appearance="fill">
+          <mat-label>Felhasználónév</mat-label>
+          <input matInput [(ngModel)]="loginData.felhasznalonev" name="username">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Jelszó</mat-label>
+          <input matInput type="password" [(ngModel)]="loginData.jelszo" name="password">
+        </mat-form-field>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" (click)="onLogin()">Belépés</button>
+        </mat-card-actions>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
